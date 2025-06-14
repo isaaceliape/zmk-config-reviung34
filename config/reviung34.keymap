@@ -16,13 +16,14 @@
 
 / {
     macros {
-        ZMK_MACRO(save,
-
-        wait-ms = <30>;
-        tap-ms = <40>;
-        bindings = <&macro_tap &kp ESC &kp COLON &kp W &kp RET>;
-
-        );
+        save: save {
+            label = "save";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <30>;
+            tap-ms = <40>;
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp ESC &kp COLON &kp W &kp RET>;
+        };
     };
 
     keymap {
