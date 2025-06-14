@@ -5,10 +5,7 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/rgb.h>
 
 #define DEFAULT 0
 #define SYMNUM 1
@@ -26,27 +23,6 @@
         bindings = <&macro_tap &kp ESC &kp COLON &kp W &kp RET>;
 
         );
-
-        pass_1: new_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(D) &kp F &kp SEMI &kp R &kp D &kp J &kp A &kp F &kp X &kp M &kp N1 &kp N7 &kp EXCL &kp LS(D) &kp F &kp SEMI &kp R &kp D &kp J &kp A &kp F &kp X &kp M &kp N1 &kp N7 &kp EXCL>;
-            label = "NEW_MACRO";
-        };
-
-        pass_2: pass_2 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp COLON &kp D &kp SEMI &kp V &kp K &kp S &kp D &kp A &kp F &kp L &kp U &kp K &kp N0 &kp N1>;
-            label = "PASS_2";
-        };
-
-        pass_3: new_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&none &kp D &kp F &kp SEMI &kp R &kp D &kp J &kp A &kp F &kp X &kp M>;
-            label = "NEW_MACRO";
-        };
     };
 
     keymap {
@@ -63,7 +39,7 @@
 &kp Q        &kp W       &kp F       &kp P            &kp B         &kp J        &kp L       &kp U       &kp Y            &kp BACKSPACE
 &mt LCTRL A  &kp R       &mt LALT S  &mt LGUI T       &kp G         &kp M        &mt RGUI N  &mt RALT E  &kp I            &mt RCTRL O
 &mt LSHFT Z  &mt RGUI X  &kp C       &kp D            &kp V         &kp K        &kp H       &kp COMMA   &mt RGUI PERIOD  &mt LSHIFT ENTER
-                                     &mt LALT ESCAPE  &mt LGUI TAB  &lt 1 SPACE  &mo 4
+                                     &mt LALT ESCAPE  &mt LGUI TAB  &lt 1 SPACE  &mo 3
             >;
         };
 
@@ -75,10 +51,10 @@
             //                     | SAVE     | TAB      |   |           |           |
 
             bindings = <
-&kp N1       &kp N2    &kp N3           &kp N4         &kp N5  &kp N6  &kp N7        &kp N8        &kp N9    &kp N0
-&mt LSHFT P  &kp LBKT  &mt LSHFT COMMA  &mt LCTRL DOT  &none   &none   &mt RCTRL N5  &mt RSHFT N6  &kp RBKT  &mt RGUI N8
-&kp P        &kp BSLH  &kp LBKT         &kp RBKT       &none   &none   &kp N9        &kp N0        &kp Z     &mt LSHFT QUESTION
-                                        &mt LSHFT B    &trans  &trans  &trans
+&kp N1       &kp N2    &kp N3        &kp N4        &kp N5  &kp N6  &kp N7        &kp N8        &kp N9    &kp N0
+&mt LSHFT P  &kp LBKT  &kp LS(LBRC)  &kp LS(LPAR)  &none   &none   &kp LS(RPAR)  &kp LS(RBRC)  &kp RBKT  &mt RGUI N8
+&trans       &trans    &trans        &trans        &none   &none   &kp N9        &kp N0        &kp Z     &mt LSHFT QUESTION
+                                     &trans        &trans  &trans  &trans
             >;
         };
 
@@ -94,21 +70,6 @@
 &mt LGUI LEFT  &mt LALT DOWN  &mt LSHFT UP  &mt LCTRL RIGHT  &none   &none    &mt RCTRL F5  &mt RSHFT F6  &mt RALT F7  &mt RGUI F8
 &kp HOME       &kp PG_DN      &kp PG_UP     &kp END          &none   &none    &kp F9        &kp F10       &kp F11      &kp F12
                                             &none            &trans  &kp DEL  &caps_word
-            >;
-        };
-
-        config_layer {
-            // -----------------------------------------------------------------------------------------
-            // | RGB BRI+ | RGB SAT+ | RGB HUE+ | RGB ANI+ |    | BT1  | BT2 | BT3 | BT4 |
-            // | RGB BRI- | RGB SAT- | RGB HUE- | RGB ANI+ |    | BT5   |       |     |     |
-            // |          |          |          | RGB TOG  |    | BT CLR |     |     | RESET     |
-            //                                              |     |     |     |     |     |
-
-            bindings = <
-&rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_EFF  &none   &none   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
-&rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_EFR  &none   &none   &bt BT_SEL 4  &none         &none         &none
-&none            &none            &none            &rgb_ug RGB_TOG  &none   &none   &bt BT_CLR    &none         &out OUT_TOG  &reset
-                                                   &trans           &trans  &trans  &trans
             >;
         };
 
