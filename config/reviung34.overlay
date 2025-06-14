@@ -10,13 +10,14 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
-        zmk,layout = &layout_def;
-        zmk,layouts {
-            compatible = "zmk,layouts";
-            default_layout: default {
-                compatible = "zmk,layout";
-                revision = <0>;
-            };
+    };
+
+    zmk,layouts {
+        compatible = "zmk,layouts";
+        default_layout: default {
+            compatible = "zmk,layout";
+            revision = <0>;
+            label = "Reviung34";
         };
     };
 
