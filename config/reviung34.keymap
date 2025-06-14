@@ -15,17 +15,6 @@
 &mt { tapping-term-ms = <165>; };
 
 / {
-    macros {
-        save: save {
-            label = "save";
-            compatible = "zmk,behavior-macro";
-            wait-ms = <30>;
-            tap-ms = <40>;
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp ESC &kp COLON &kp W &kp RET>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
