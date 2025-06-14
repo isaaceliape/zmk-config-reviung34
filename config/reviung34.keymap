@@ -26,6 +26,27 @@
         bindings = <&macro_tap &kp ESC &kp COLON &kp W &kp RET>;
 
         );
+
+        pass_1: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(D) &kp F &kp SEMI &kp R &kp D &kp J &kp A &kp F &kp X &kp M &kp N1 &kp N7 &kp EXCL &kp LS(D) &kp F &kp SEMI &kp R &kp D &kp J &kp A &kp F &kp X &kp M &kp N1 &kp N7 &kp EXCL>;
+            label = "NEW_MACRO";
+        };
+
+        pass_2: pass_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp D &kp SEMI &kp V &kp K &kp S &kp D &kp A &kp F &kp L &kp U &kp K &kp N0 &kp N1>;
+            label = "PASS_2";
+        };
+
+        pass_3: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp D &kp F &kp SEMI &kp R &kp D &kp J &kp A &kp F &kp X &kp M>;
+            label = "NEW_MACRO";
+        };
     };
 
     keymap {
@@ -39,10 +60,10 @@
             //                        | RET      | NAV(SPC)   |      |       | SYM(BSPC)   | CONF(ESC)  |
 
             bindings = <
-&kp Q  &kp W  &kp F       &kp P       &kp B            &kp J             &kp L       &kp U       &kp Y       &kp SEMICOLON
-&kp A  &kp R  &mt LALT S  &mt LGUI T  &kp G            &kp M             &mt RGUI N  &mt RALT E  &kp I       &mt RCTRL O
-&kp Z  &kp X  &kp C       &kp D       &kp V            &kp K             &kp H       &kp COMMA   &kp PERIOD  &mt LSHIFT ENTER
-                          &kp ESCAPE  &lt NAVFN SPACE  &lt SYMNUM SPACE  &sys_reset
+&kp Q        &kp W       &kp F       &kp P            &kp B         &kp J        &kp L       &kp U       &kp Y            &kp BACKSPACE
+&mt LCTRL A  &kp R       &mt LALT S  &mt LGUI T       &kp G         &kp M        &mt RGUI N  &mt RALT E  &kp I            &mt RCTRL O
+&mt LSHFT Z  &mt RGUI X  &kp C       &kp D            &kp V         &kp K        &kp H       &kp COMMA   &mt RGUI PERIOD  &mt LSHIFT ENTER
+                                     &mt LALT ESCAPE  &mt LGUI TAB  &lt 1 SPACE  &mo 4
             >;
         };
 
@@ -54,10 +75,10 @@
             //                     | SAVE     | TAB      |   |           |           |
 
             bindings = <
-&none         &kp GRAVE       &kp BSLH         &kp FSLH       &none    &none   &kp N1        &kp N2        &kp N3       &kp N4
-&mt LGUI SQT  &mt LALT MINUS  &mt LSHFT COMMA  &mt LCTRL DOT  &none    &none   &mt RCTRL N5  &mt RSHFT N6  &mt RALT N7  &mt RGUI N8
-&kp EQUAL     &kp SEMI        &kp LBKT         &kp RBKT       &none    &none   &kp N9        &kp N0        &kp Z        &kp Q
-                                               &save          &kp TAB  &trans  &none
+&kp N1       &kp N2    &kp N3           &kp N4         &kp N5  &kp N6  &kp N7        &kp N8        &kp N9    &kp N0
+&mt LSHFT P  &kp LBKT  &mt LSHFT COMMA  &mt LCTRL DOT  &none   &none   &mt RCTRL N5  &mt RSHFT N6  &kp RBKT  &mt RGUI N8
+&kp P        &kp BSLH  &kp LBKT         &kp RBKT       &none   &none   &kp N9        &kp N0        &kp Z     &mt LSHFT QUESTION
+                                        &mt LSHFT B    &trans  &trans  &trans
             >;
         };
 
@@ -88,6 +109,15 @@
 &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_EFR  &none   &none   &bt BT_SEL 4  &none         &none         &none
 &none            &none            &none            &rgb_ug RGB_TOG  &none   &none   &bt BT_CLR    &none         &out OUT_TOG  &reset
                                                    &trans           &trans  &trans  &trans
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &kp UP    &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans     &trans
+                        &trans  &trans  &trans  &trans
             >;
         };
     };
