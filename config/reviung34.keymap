@@ -15,9 +15,7 @@
 #define NAVFN 2
 #define CONFIG 3
 
-&mt {
-    tapping-term-ms = <165>;
-};
+&mt { tapping-term-ms = <165>; };
 
 / {
     macros {
@@ -41,10 +39,10 @@
             //                        | RET      | NAV(SPC)   |      |       | SYM(BSPC)   | CONF(ESC)  |
 
             bindings = <
-&kp Q  &kp W  &kp F       &kp P       &kp B            &kp J            &kp L       &kp U       &kp Y       &kp SEMICOLON
-&kp A  &kp R  &mt LALT S  &mt LGUI T  &kp G            &kp M            &mt RGUI N  &mt RALT E  &kp I       &mt RCTRL O
-&kp Z  &kp X  &kp C       &kp D       &kp V            &kp K            &kp H       &kp COMMA   &kp PERIOD  &mt LSHIFT ENTER
-                          &kp RET     &lt NAVFN SPACE  &lt SYMNUM BSPC  &sys_reset
+&kp Q  &kp W  &kp F       &kp P       &kp B            &kp J             &kp L       &kp U       &kp Y       &kp SEMICOLON
+&kp A  &kp R  &mt LALT S  &mt LGUI T  &kp G            &kp M             &mt RGUI N  &mt RALT E  &kp I       &mt RCTRL O
+&kp Z  &kp X  &kp C       &kp D       &kp V            &kp K             &kp H       &kp COMMA   &kp PERIOD  &mt LSHIFT ENTER
+                          &kp ESCAPE  &lt NAVFN SPACE  &lt SYMNUM SPACE  &sys_reset
             >;
         };
 
