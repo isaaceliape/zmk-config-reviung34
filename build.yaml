@@ -14,6 +14,6 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: REVIUNG34
+    shield: reviung34
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
