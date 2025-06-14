@@ -25,6 +25,34 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(2,6) RC(2,7) RC(2,8) RC(3,7)
         >;
     };
 
+    zmk,layout {
+        compatible = "zmk,layout";
+        label = "Reviung34";
+        /*
+         * Matrix is indexed by row and represents physical layout from
+         * left to right, where -1 represents an empty spot in the matrix
+         */
+        matrix = <
+            0  1  2  3  4  5  6  7  8  39
+            10 11 12 13 14 15 16 17 18 36
+            20 21 22 23 24 25 26 27 28 37
+                       32 33 34 38
+        >;
+
+        /* Physical locations for each key, used by configurator for rendering
+         * Numbers are specified as decimal values in mm.
+         */
+        positions = <
+            0 0   14 0   28 0   42 0   56 0   70 0    84 0    98 0    112 0  126 0
+            0 14  14 14  28 14  42 14  56 14  70 14   84 14   98 14   112 14 126 14
+            0 28  14 28  28 28  42 28  56 28  70 28   84 28   98 28   112 28 126 28
+                              42 42  56 42  70 42   84 42
+        >;
+
+        rows = <4>;
+        columns = <10>;
+    };
+
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
